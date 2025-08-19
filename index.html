@@ -11,28 +11,15 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --gradient-bg-start: hsl(229, 84%, 71%);
-            --gradient-bg-end: hsl(281, 39%, 55%);
-            --gradient-primary-start: hsl(203, 89%, 53%);
-            --gradient-primary-end: hsl(189, 69%, 54%);
-            --gradient-success-start: hsl(122, 39%, 49%);
-            --gradient-success-end: hsl(120, 40%, 44%);
-            --gradient-danger-start: hsl(4, 90%, 58%);
-            --gradient-danger-end: hsl(4, 63%, 47%);
-            --gradient-warning-start: hsl(36, 100%, 50%);
-            --gradient-warning-end: hsl(31, 100%, 47%);
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--gradient-bg-start), var(--gradient-bg-end));
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
@@ -41,30 +28,30 @@
         }
 
         .header {
-            background: linear-gradient(135deg, var(--gradient-primary-start), var(--gradient-primary-end));
+            background: linear-gradient(135deg, #2196F3 0%, #21CBF3 100%);
             color: white;
             padding: 20px;
             text-align: center;
         }
 
         .header h1 { 
-            font-size: 2.5em; 
-            margin-bottom: 10px; 
+            font-size: 2em; 
+            margin-bottom: 8px; 
         }
         
         .header p { 
-            font-size: 1.1em; 
+            font-size: 1em; 
             opacity: 0.9; 
         }
 
         .status-indicator {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            text-center: center;
+            text-align: center;
             font-size: 14px;
             padding: 8px 15px;
-            margin: 10px auto;
+            margin: 10px auto 0;
             border-radius: 20px;
             font-weight: 500;
             max-width: 300px;
@@ -74,14 +61,11 @@
             background: #f8f9fa;
             padding: 15px;
             border-bottom: 1px solid #e9ecef;
-        }
-
-        .control-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .panel-controls {
@@ -101,18 +85,17 @@
             font-size: 14px;
             font-weight: 500;
             color: #495057;
-            min-width: 60px;
+            min-width: 50px;
         }
 
         .control-group input[type="range"] {
             width: 80px;
-            accent-color: var(--gradient-primary-start);
         }
 
         .control-group .value-display {
             font-size: 12px;
             color: #6c757d;
-            min-width: 40px;
+            min-width: 35px;
         }
 
         .action-buttons {
@@ -124,61 +107,44 @@
         .btn {
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 18px;
             font-size: 14px;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            white-space: nowrap;
             font-weight: 500;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
-        .btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--gradient-success-start), var(--gradient-success-end));
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, var(--gradient-danger-start), var(--gradient-danger-end));
-        }
-
-        .btn-warning {
-            background: linear-gradient(135deg, var(--gradient-warning-start), var(--gradient-warning-end));
-        }
+        .btn-success { background: linear-gradient(135deg, #28a745, #20c997); }
+        .btn-danger { background: linear-gradient(135deg, #dc3545, #fd7e14); }
+        .btn-warning { background: linear-gradient(135deg, #ffc107, #fd7e14); }
 
         .main-content {
-            display: grid;
-            grid-template-columns: var(--examples-width, 300px) var(--editor-width, 1fr) var(--preview-width, 1fr);
-            gap: 20px;
-            padding: 20px;
-            min-height: 600px;
+            display: flex;
+            height: 650px;
         }
 
-        .panel {
+        .examples-panel {
+            width: 280px;
             background: #f8f9fa;
-            border-radius: 10px;
+            border-right: 2px solid #e9ecef;
+            overflow-y: auto;
             padding: 15px;
-            border: 2px solid #e9ecef;
         }
 
-        .panel h3 {
+        .examples-panel h3 {
             color: #495057;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            text-align: center;
         }
 
-        .examples-panel .example-item {
+        .example-item {
             background: white;
             padding: 12px;
             margin-bottom: 10px;
@@ -188,14 +154,19 @@
             transition: all 0.3s ease;
         }
 
-        .examples-panel .example-item:hover {
+        .example-item:hover {
             background: #e3f2fd;
-            border-color: var(--gradient-primary-start);
-            transform: translateY(-2px);
+            border-color: #2196F3;
+            transform: translateX(3px);
+        }
+
+        .example-item.active {
+            background: #e3f2fd;
+            border-color: #2196F3;
         }
 
         .example-item h4 {
-            color: var(--gradient-primary-start);
+            color: #2196F3;
             font-size: 0.9em;
             margin-bottom: 5px;
         }
@@ -204,13 +175,13 @@
             color: #6c757d;
             font-size: 0.8em;
             line-height: 1.4;
+            margin-bottom: 8px;
         }
 
         .example-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 8px;
         }
 
         .category-badge {
@@ -226,16 +197,37 @@
             color: #6c757d;
         }
 
+        .editor-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            background: white;
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .editor-title {
+            color: #495057;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
         .code-tabs {
             display: flex;
             border-bottom: 2px solid #e9ecef;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .tab-button {
             background: none;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             cursor: pointer;
             border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
@@ -244,39 +236,38 @@
         }
 
         .tab-button.active {
-            color: var(--gradient-primary-start);
-            border-bottom-color: var(--gradient-primary-start);
+            color: #2196F3;
+            border-bottom-color: #2196F3;
             background: rgba(33, 150, 243, 0.1);
         }
 
-        .tab-button:hover {
+        .tab-button:hover:not(.active) {
             background: rgba(33, 150, 243, 0.05);
         }
 
         .code-editor {
-            width: 100%;
-            height: 400px;
+            flex: 1;
             border: 1px solid #ced4da;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
             font-size: 14px;
             padding: 15px;
             resize: none;
-            background: #ffffff;
+            background: #fafafa;
             color: #212529;
             line-height: 1.5;
         }
 
         .code-editor:focus {
             outline: none;
-            border-color: var(--gradient-primary-start);
+            border-color: #2196F3;
             box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
         }
 
         .editor-actions {
             margin-top: 10px;
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-small {
@@ -294,22 +285,23 @@
             background: #5a6268;
         }
 
-        .preview-panel {
+        .preview-section {
+            width: 400px;
             background: #1a1a1a;
-            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
             padding: 15px;
-            border: 2px solid #333;
         }
 
-        .preview-panel h3 { 
+        .preview-section h3 { 
             color: #ffffff; 
             margin-bottom: 15px; 
+            font-size: 1.1em;
         }
 
         .preview-frame {
-            width: 100%;
-            height: 400px;
-            border: 2px solid var(--gradient-primary-start);
+            flex: 1;
+            border: 2px solid #2196F3;
             border-radius: 8px;
             background: white;
         }
@@ -347,7 +339,7 @@
         }
 
         .console-section {
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .console-section h4 {
@@ -388,12 +380,12 @@
             background: white;
             padding: 15px;
             border-radius: 8px;
-            border-left: 4px solid var(--gradient-primary-start);
+            border-left: 4px solid #2196F3;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .tip-card h4 {
-            color: var(--gradient-primary-start);
+            color: #2196F3;
             margin-bottom: 8px;
             font-size: 14px;
         }
@@ -412,13 +404,35 @@
             font-size: 14px;
         }
 
-        @media (max-width: 1024px) {
+        /* Responsive design */
+        @media (max-width: 1200px) {
             .main-content {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto;
+                flex-direction: column;
+                height: auto;
             }
 
-            .control-row {
+            .examples-panel {
+                width: 100%;
+                height: 200px;
+                border-right: none;
+                border-bottom: 2px solid #e9ecef;
+            }
+
+            .preview-section {
+                width: 100%;
+            }
+
+            .preview-frame {
+                height: 300px;
+            }
+
+            .code-editor {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .control-panel {
                 flex-direction: column;
                 align-items: stretch;
             }
@@ -430,24 +444,26 @@
             .action-buttons {
                 justify-content: center;
             }
-        }
 
-        @media (max-width: 768px) {
-            .code-editor, .preview-frame {
+            .btn {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+
+            .examples-panel {
+                height: 150px;
+            }
+
+            .code-editor {
+                height: 250px;
+            }
+
+            .preview-frame {
                 height: 250px;
             }
 
             .console-output {
                 height: 80px;
-            }
-
-            .tips-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .btn {
-                padding: 10px 16px;
-                font-size: 13px;
             }
         }
     </style>
@@ -463,49 +479,44 @@
         </header>
 
         <div class="control-panel">
-            <div class="control-row">
-                <div class="panel-controls">
-                    <div class="control-group">
-                        <label>Ejemplos:</label>
-                        <input type="range" id="examples-width" min="200" max="500" value="300">
-                        <span class="value-display" id="examples-display">300px</span>
-                    </div>
-                    <div class="control-group">
-                        <label>Editor:</label>
-                        <input type="range" id="editor-width" min="1" max="3" step="0.1" value="1.2">
-                        <span class="value-display" id="editor-display">1.2fr</span>
-                    </div>
-                    <div class="control-group">
-                        <label>Vista:</label>
-                        <input type="range" id="preview-width" min="1" max="3" step="0.1" value="1">
-                        <span class="value-display" id="preview-display">1fr</span>
-                    </div>
+            <div class="panel-controls">
+                <div class="control-group">
+                    <label>Ejemplos:</label>
+                    <input type="range" id="examples-width" min="200" max="400" value="280">
+                    <span class="value-display" id="examples-display">280px</span>
                 </div>
-                
-                <div class="action-buttons">
-                    <button class="btn btn-success" onclick="runCode()">
-                        ▶️ Ejecutar
-                    </button>
-                    <button class="btn btn-danger" onclick="clearCode()">
-                        🗑️ Limpiar
-                    </button>
-                    <button class="btn btn-warning" onclick="downloadProject()">
-                        💾 Descargar
-                    </button>
+                <div class="control-group">
+                    <label>Vista:</label>
+                    <input type="range" id="preview-width" min="300" max="600" value="400">
+                    <span class="value-display" id="preview-display">400px</span>
                 </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-success" onclick="runCode()">
+                    ▶️ Ejecutar
+                </button>
+                <button class="btn btn-danger" onclick="clearCode()">
+                    🗑️ Limpiar
+                </button>
+                <button class="btn btn-warning" onclick="downloadProject()">
+                    💾 Descargar
+                </button>
             </div>
         </div>
 
         <main class="main-content">
             <!-- Examples Panel -->
-            <section class="panel examples-panel">
+            <section class="examples-panel">
                 <h3>📚 Ejemplos Educativos</h3>
                 <div id="examples-list"></div>
             </section>
 
-            <!-- Code Editor Panel -->
-            <section class="panel editor-panel">
-                <h3>💻 Editor de Código</h3>
+            <!-- Code Editor Section -->
+            <section class="editor-section">
+                <div class="editor-header">
+                    <h3 class="editor-title">💻 Editor de Código</h3>
+                </div>
                 
                 <div class="code-tabs">
                     <button class="tab-button active" onclick="switchTab('html')">HTML</button>
@@ -525,8 +536,8 @@
                 </div>
             </section>
 
-            <!-- Live Preview Panel -->
-            <section class="panel preview-panel">
+            <!-- Live Preview Section -->
+            <section class="preview-section">
                 <h3>🌐 Vista Previa en Vivo</h3>
                 
                 <iframe 
@@ -577,8 +588,9 @@
     </footer>
 
     <script>
-        // State management
+        // Global state
         let currentTab = 'html';
+        let currentExample = null;
         let codeData = {
             html: `<!DOCTYPE html>
 <html lang="es">
@@ -631,7 +643,7 @@ p {
 
         let consoleMessages = [];
 
-        // Example data
+        // Educational examples data
         const examples = [
             {
                 id: 'html-basic',
@@ -650,6 +662,11 @@ p {
     <h1>¡Hola Mundo!</h1>
     <p>Esta es mi primera página web.</p>
     <p>Aquí puedo escribir cualquier contenido que quiera mostrar.</p>
+    <ul>
+        <li>Elemento de lista 1</li>
+        <li>Elemento de lista 2</li>
+        <li>Elemento de lista 3</li>
+    </ul>
 </body>
 </html>`,
                 css: `body {
@@ -666,15 +683,21 @@ h1 {
     margin-bottom: 20px;
 }
 
-p {
+p, li {
     font-size: 1.2em;
     line-height: 1.6;
     text-align: center;
+}
+
+ul {
+    max-width: 400px;
+    margin: 20px auto;
 }`,
                 js: `console.log('¡Hola desde JavaScript!');
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Página cargada correctamente');
+    console.log('Total de elementos <p>:', document.querySelectorAll('p').length);
 });`
             },
             {
@@ -717,6 +740,9 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 h1 {
@@ -759,6 +785,8 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: transform 0.2s;
+    display: block;
+    margin: 0 auto;
 }
 
 button:hover {
@@ -769,6 +797,7 @@ button:hover {
     margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
+    text-align: center;
     display: none;
 }
 
@@ -776,6 +805,12 @@ button:hover {
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    margin: 0;
+    padding: 20px;
 }`,
                 js: `document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -795,7 +830,9 @@ button:hover {
         
         console.log('Formulario enviado:', { nombre, email, mensaje });
     }
-});`
+});
+
+console.log('Formulario listo para usar');`
             },
             {
                 id: 'flexbox',
@@ -824,26 +861,27 @@ button:hover {
         <section class="hero">
             <h2>Bienvenido a mi sitio</h2>
             <p>Diseño responsivo con Flexbox</p>
+            <button class="cta-button">¡Comenzar!</button>
         </section>
         
         <section class="cards">
             <div class="card">
                 <h3>Tarjeta 1</h3>
-                <p>Contenido de la primera tarjeta</p>
+                <p>Contenido de la primera tarjeta con información útil.</p>
             </div>
             <div class="card">
                 <h3>Tarjeta 2</h3>
-                <p>Contenido de la segunda tarjeta</p>
+                <p>Contenido de la segunda tarjeta con más detalles.</p>
             </div>
             <div class="card">
                 <h3>Tarjeta 3</h3>
-                <p>Contenido de la tercera tarjeta</p>
+                <p>Contenido de la tercera tarjeta completando el diseño.</p>
             </div>
         </section>
     </main>
     
     <footer class="footer">
-        <p>&copy; 2024 Mi Sitio Web</p>
+        <p>&copy; 2024 Mi Sitio Web - Creado con Flexbox</p>
     </footer>
 </body>
 </html>`,
@@ -858,6 +896,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: #f5f5f5;
 }
 
 .header {
@@ -895,13 +934,34 @@ body {
     padding: 3rem 0;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 2rem;
 }
 
 .hero h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
 }
 
 .cards {
@@ -914,8 +974,8 @@ body {
 .card {
     background: white;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     flex: 1;
     min-width: 250px;
     max-width: 300px;
@@ -923,7 +983,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .card h3 {
@@ -958,7 +1018,7 @@ body {
         align-items: center;
     }
 }`,
-                js: `// Efecto suave al hacer scroll
+                js: `// Efecto suave al hacer scroll y navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -971,22 +1031,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
+        card.style.transform = 'translateY(30px)';
         
         setTimeout(() => {
-            card.style.transition = 'all 0.5s ease';
+            card.style.transition = 'all 0.6s ease';
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
-        }, index * 200);
+        }, index * 300);
     });
     
-    console.log('Página cargada - animaciones iniciadas');
+    // Botón de llamada a la acción
+    document.querySelector('.cta-button').addEventListener('click', function() {
+        this.textContent = '¡Genial!';
+        setTimeout(() => {
+            this.textContent = '¡Comenzar!';
+        }, 2000);
+        console.log('Botón CTA clickeado');
+    });
+    
+    console.log('Página con Flexbox cargada - animaciones iniciadas');
 });`
             },
             {
                 id: 'animations',
                 title: '✨ Animaciones CSS',
-                description: 'Efectos visuales y transiciones suaves',
+                description: 'Efectos visuales y transiciones suaves con CSS',
                 category: 'css',
                 difficulty: 'avanzado',
                 html: `<!DOCTYPE html>
@@ -998,7 +1067,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo-animado">Animaciones CSS</h1>
+        <h1 class="titulo-animado">✨ Animaciones CSS ✨</h1>
         
         <div class="botones">
             <button class="btn btn-bounce">Rebote</button>
@@ -1007,14 +1076,25 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="btn btn-pulse">Pulso</button>
         </div>
         
-        <div class="caja-animada">
-            <div class="circulo"></div>
+        <div class="demo-area">
+            <div class="caja-animada">
+                <div class="circulo"></div>
+            </div>
+            
+            <div class="loading-demo">
+                <h3>Cargando...</h3>
+                <div class="loading">
+                    <div class="punto"></div>
+                    <div class="punto"></div>
+                    <div class="punto"></div>
+                </div>
+            </div>
         </div>
         
-        <div class="loading">
-            <div class="punto"></div>
-            <div class="punto"></div>
-            <div class="punto"></div>
+        <div class="floating-elements">
+            <div class="floating-item">🌟</div>
+            <div class="floating-item">⭐</div>
+            <div class="floating-item">✨</div>
         </div>
     </div>
 </body>
@@ -1022,7 +1102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 css: `@keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-50px);
     }
     to {
         opacity: 1;
@@ -1055,13 +1135,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
 
 @keyframes wave {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes colorShift {
+    0% { background: linear-gradient(45deg, #FF6B6B, #4ECDC4); }
+    33% { background: linear-gradient(45deg, #4ECDC4, #45B7D1); }
+    66% { background: linear-gradient(45deg, #45B7D1, #FFA07A); }
+    100% { background: linear-gradient(45deg, #FFA07A, #FF6B6B); }
 }
 
 body {
@@ -1073,14 +1165,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 90%;
+    position: relative;
 }
 
 .titulo-animado {
@@ -1088,6 +1184,7 @@ body {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     animation: fadeInDown 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .botones {
@@ -1095,7 +1192,7 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .btn {
@@ -1107,11 +1204,12 @@ body {
     transition: all 0.3s ease;
     background: linear-gradient(135deg, #2196F3, #21CBF3);
     color: white;
+    font-weight: 500;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
 }
 
 .btn-bounce:hover {
@@ -1130,41 +1228,58 @@ body {
     animation: pulse 1s infinite;
 }
 
+.demo-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
 .caja-animada {
-    margin: 2rem auto;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    animation: colorShift 4s infinite;
 }
 
 .caja-animada:hover {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .circulo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: white;
     border-radius: 50%;
     animation: pulse 2s infinite;
+}
+
+.loading-demo {
+    text-align: center;
+}
+
+.loading-demo h3 {
+    color: #2196F3;
+    margin-bottom: 1rem;
 }
 
 .loading {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-top: 2rem;
 }
 
 .punto {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background: #2196F3;
     border-radius: 50%;
     animation: wave 1.4s infinite ease-in-out;
@@ -1176,172 +1291,511 @@ body {
 
 .punto:nth-child(3) {
     animation-delay: 0.4s;
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-item {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.floating-item:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-item:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.floating-item:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+@media (max-width: 768px) {
+    .titulo-animado {
+        font-size: 2rem;
+    }
+    
+    .demo-area {
+        flex-direction: column;
+    }
+    
+    .caja-animada {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .floating-item {
+        font-size: 1.5rem;
+    }
 }`,
                 js: `document.addEventListener('DOMContentLoaded', function() {
-    // Agregar efectos de sonido simulados
+    // Agregar interactividad a los botones
     const botones = document.querySelectorAll('.btn');
     
     botones.forEach(boton => {
         boton.addEventListener('click', function() {
-            console.log('Efecto de sonido: ' + this.textContent);
+            const efecto = this.textContent;
+            console.log('Efecto activado: ' + efecto);
+            
+            // Crear efecto visual al hacer click
+            this.style.background = 'linear-gradient(135deg, #FF6B6B, #4ECDC4)';
+            setTimeout(() => {
+                this.style.background = 'linear-gradient(135deg, #2196F3, #21CBF3)';
+            }, 500);
         });
     });
     
-    console.log('Animaciones CSS cargadas correctamente');
+    // Interacción con la caja animada
+    const cajaAnimada = document.querySelector('.caja-animada');
+    cajaAnimada.addEventListener('click', function() {
+        this.style.animation = 'none';
+        setTimeout(() => {
+            this.style.animation = 'colorShift 4s infinite, pulse 0.5s ease-out';
+        }, 50);
+        
+        console.log('¡Caja animada clickeada!');
+    });
+    
+    // Generar elementos flotantes adicionales aleatoriamente
+    function crearElementoFlotante() {
+        const elemento = document.createElement('div');
+        elemento.className = 'floating-item';
+        elemento.textContent = ['🌟', '⭐', '✨', '💫'][Math.floor(Math.random() * 4)];
+        elemento.style.left = Math.random() * 80 + '%';
+        elemento.style.top = Math.random() * 80 + '%';
+        elemento.style.animationDelay = Math.random() * 3 + 's';
+        
+        document.querySelector('.floating-elements').appendChild(elemento);
+        
+        // Remover después de 6 segundos
+        setTimeout(() => {
+            elemento.remove();
+        }, 6000);
+    }
+    
+    // Crear un nuevo elemento flotante cada 3 segundos
+    setInterval(crearElementoFlotante, 3000);
+    
+    console.log('🎨 Animaciones CSS cargadas correctamente');
+    console.log('🎯 Haz hover sobre los botones para ver los efectos');
+    console.log('🖱️ Haz click en la caja colorida para reiniciar su animación');
 });`
             },
             {
-                id: 'js-basic',
-                title: '⚡ JavaScript Básico',
-                description: 'Variables, funciones y manipulación del DOM',
+                id: 'js-interactive',
+                title: '⚡ JavaScript Interactivo',
+                description: 'Manipulación del DOM y eventos interactivos',
                 category: 'javascript',
-                difficulty: 'principiante',
+                difficulty: 'intermedio',
                 html: `<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Básico</title>
+    <title>JavaScript Interactivo</title>
 </head>
 <body>
     <div class="container">
-        <h1>Aprendiendo JavaScript</h1>
+        <h1>🎮 JavaScript Interactivo</h1>
         
         <div class="section">
-            <h2>Contador Interactivo</h2>
-            <p>Contador: <span id="contador">0</span></p>
-            <button id="incrementar">Incrementar</button>
-            <button id="decrementar">Decrementar</button>
-            <button id="reset">Reset</button>
+            <h2>🔢 Contador Avanzado</h2>
+            <div class="contador-display">
+                <span id="contador">0</span>
+            </div>
+            <div class="contador-controls">
+                <button class="btn btn-danger" onclick="decrementar()">-</button>
+                <button class="btn btn-success" onclick="incrementar()">+</button>
+                <button class="btn btn-warning" onclick="resetContador()">Reset</button>
+            </div>
         </div>
         
         <div class="section">
-            <h2>Cambiar Colores</h2>
-            <button id="cambiar-color">Cambiar Color de Fondo</button>
+            <h2>🎨 Generador de Colores</h2>
+            <div id="color-display" class="color-display"></div>
+            <button class="btn btn-primary" onclick="generarColor()">Nuevo Color</button>
+            <button class="btn btn-secondary" onclick="copiarColor()">Copiar Código</button>
         </div>
         
         <div class="section">
-            <h2>Hora Actual</h2>
-            <p id="reloj">--:--:--</p>
+            <h2>⏰ Reloj Digital</h2>
+            <div id="reloj" class="reloj"></div>
+            <button class="btn btn-info" onclick="toggleReloj()">Pausar/Reanudar</button>
+        </div>
+        
+        <div class="section">
+            <h2>🎲 Generador de Números</h2>
+            <div class="numero-controls">
+                <input type="number" id="min" value="1" min="0">
+                <span>a</span>
+                <input type="number" id="max" value="100" min="1">
+                <button class="btn btn-success" onclick="generarNumero()">Generar</button>
+            </div>
+            <div id="numero-resultado" class="numero-resultado">?</div>
         </div>
     </div>
 </body>
 </html>`,
                 css: `body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 20px;
     background: linear-gradient(135deg, #74b9ff, #0984e3);
     color: white;
-    transition: background 0.5s ease;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.1);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-}
-
-.section {
-    margin-bottom: 30px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-    color: #fff;
+    color: #fdcb6e;
     margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-button {
-    background: #00b894;
-    color: white;
+.section {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn {
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     margin: 5px;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-button:hover {
-    background: #00a085;
+.btn:hover {
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-success { background: linear-gradient(135deg, #00b894, #00a085); color: white; }
+.btn-danger { background: linear-gradient(135deg, #e17055, #d63031); color: white; }
+.btn-warning { background: linear-gradient(135deg, #fdcb6e, #e84393); color: white; }
+.btn-primary { background: linear-gradient(135deg, #74b9ff, #0984e3); color: white; }
+.btn-secondary { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: white; }
+.btn-info { background: linear-gradient(135deg, #fd79a8, #e84393); color: white; }
+
+.contador-display {
+    text-align: center;
+    margin: 20px 0;
 }
 
 #contador {
-    font-size: 2em;
+    font-size: 4em;
     font-weight: bold;
     color: #fdcb6e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    min-width: 100px;
 }
 
-#reloj {
-    font-size: 1.5em;
+.contador-controls {
+    text-align: center;
+}
+
+.color-display {
+    height: 100px;
+    border-radius: 15px;
+    margin: 15px 0;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.reloj {
+    text-align: center;
+    font-size: 2.5em;
     font-weight: bold;
     color: #fdcb6e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.numero-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.numero-controls input {
+    padding: 8px 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    width: 80px;
+    text-align: center;
+}
+
+.numero-controls input:focus {
+    outline: none;
+    border-color: #fdcb6e;
+}
+
+.numero-controls span {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.numero-resultado {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: #00b894;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .reloj {
+        font-size: 2em;
+    }
+    
+    #contador {
+        font-size: 3em;
+    }
+    
+    .numero-resultado {
+        font-size: 2em;
+    }
 }`,
                 js: `// Variables globales
 let contador = 0;
-const colores = ['#74b9ff', '#fd79a8', '#fdcb6e', '#00b894', '#e17055'];
-let colorIndex = 0;
+let colorActual = '#74b9ff';
+let relojActivo = true;
+let intervalos = {};
 
-// Función para actualizar el contador
+// Funciones del contador
+function incrementar() {
+    contador++;
+    actualizarContador();
+    console.log('Contador incrementado:', contador);
+}
+
+function decrementar() {
+    contador--;
+    actualizarContador();
+    console.log('Contador decrementado:', contador);
+}
+
+function resetContador() {
+    contador = 0;
+    actualizarContador();
+    console.log('Contador reiniciado');
+}
+
 function actualizarContador() {
-    document.getElementById('contador').textContent = contador;
-    console.log('Contador actualizado:', contador);
+    const elemento = document.getElementById('contador');
+    elemento.textContent = contador;
+    
+    // Efecto visual
+    elemento.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        elemento.style.transform = 'scale(1)';
+    }, 200);
 }
 
-// Función para cambiar color de fondo
-function cambiarColor() {
-    colorIndex = (colorIndex + 1) % colores.length;
-    const nuevoColor = colores[colorIndex];
-    document.body.style.background = \`linear-gradient(135deg, \${nuevoColor}, \${nuevoColor}99)\`;
-    console.log('Color cambiado a:', nuevoColor);
+// Funciones del generador de colores
+function generarColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    
+    colorActual = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    const hex = '#' + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('');
+    
+    const display = document.getElementById('color-display');
+    display.style.background = colorActual;
+    display.textContent = hex.toUpperCase();
+    
+    console.log('Nuevo color generado:', hex);
 }
 
-// Función para actualizar el reloj
+function copiarColor() {
+    const display = document.getElementById('color-display');
+    const color = display.textContent;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(color).then(() => {
+            console.log('Color copiado al portapapeles:', color);
+            mostrarMensaje('Color copiado: ' + color);
+        });
+    } else {
+        console.log('Clipboard no disponible, color actual:', color);
+        mostrarMensaje('Color actual: ' + color);
+    }
+}
+
+// Funciones del reloj
 function actualizarReloj() {
-    const ahora = new Date();
-    const tiempo = ahora.toLocaleTimeString();
-    document.getElementById('reloj').textContent = tiempo;
+    if (relojActivo) {
+        const ahora = new Date();
+        const tiempo = ahora.toLocaleTimeString();
+        document.getElementById('reloj').textContent = tiempo;
+    }
 }
 
-// Event listeners cuando el DOM esté listo
+function toggleReloj() {
+    relojActivo = !relojActivo;
+    const boton = event.target;
+    boton.textContent = relojActivo ? 'Pausar' : 'Reanudar';
+    console.log('Reloj:', relojActivo ? 'activado' : 'pausado');
+}
+
+// Funciones del generador de números
+function generarNumero() {
+    const min = parseInt(document.getElementById('min').value) || 0;
+    const max = parseInt(document.getElementById('max').value) || 100;
+    
+    if (min >= max) {
+        mostrarMensaje('El número mínimo debe ser menor que el máximo');
+        return;
+    }
+    
+    const numero = Math.floor(Math.random() * (max - min + 1)) + min;
+    const resultado = document.getElementById('numero-resultado');
+    
+    // Animación de carga
+    resultado.textContent = '...';
+    setTimeout(() => {
+        resultado.textContent = numero;
+        resultado.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            resultado.style.transform = 'scale(1)';
+        }, 300);
+    }, 500);
+    
+    console.log('Número generado:', numero, 'entre', min, 'y', max);
+}
+
+// Función auxiliar para mostrar mensajes
+function mostrarMensaje(mensaje) {
+    // Crear elemento de mensaje temporal
+    const div = document.createElement('div');
+    div.textContent = mensaje;
+    div.style.cssText = \`
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    \`;
+    
+    document.body.appendChild(div);
+    
+    setTimeout(() => {
+        div.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(div);
+        }, 300);
+    }, 2000);
+}
+
+// Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    // Botones del contador
-    document.getElementById('incrementar').addEventListener('click', function() {
-        contador++;
-        actualizarContador();
-    });
+    // Actualizar contador inicial
+    actualizarContador();
     
-    document.getElementById('decrementar').addEventListener('click', function() {
-        contador--;
-        actualizarContador();
-    });
+    // Generar color inicial
+    generarColor();
     
-    document.getElementById('reset').addEventListener('click', function() {
-        contador = 0;
-        actualizarContador();
-    });
-    
-    // Botón cambiar color
-    document.getElementById('cambiar-color').addEventListener('click', cambiarColor);
-    
-    // Inicializar reloj y actualizarlo cada segundo
+    // Iniciar reloj
     actualizarReloj();
-    setInterval(actualizarReloj, 1000);
+    intervalos.reloj = setInterval(actualizarReloj, 1000);
     
-    console.log('JavaScript básico cargado correctamente');
-    console.log('Prueba los botones para ver la interactividad');
+    // Agregar listeners para inputs de números
+    document.getElementById('min').addEventListener('input', function() {
+        console.log('Rango mínimo cambiado:', this.value);
+    });
+    
+    document.getElementById('max').addEventListener('input', function() {
+        console.log('Rango máximo cambiado:', this.value);
+    });
+    
+    console.log('🎮 JavaScript Interactivo cargado correctamente');
+    console.log('🔢 Contador inicializado');
+    console.log('🎨 Generador de colores listo');
+    console.log('⏰ Reloj digital iniciado');
+    console.log('🎲 Generador de números configurado');
+});
+
+// Limpiar intervalos al cerrar la página
+window.addEventListener('beforeunload', function() {
+    Object.values(intervalos).forEach(clearInterval);
 });`
             }
         ];
@@ -1353,6 +1807,7 @@ document.addEventListener('DOMContentLoaded', function() {
             switchTab('html');
             updatePreview();
             setupConsoleCapture();
+            console.log('IDE Web Educativo inicializado correctamente');
         }
 
         // Load examples into the panel
@@ -1365,14 +1820,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 exampleDiv.className = 'example-item';
                 exampleDiv.onclick = () => loadExample(example);
                 
-                exampleDiv.innerHTML = `
-                    <h4>${example.title}</h4>
-                    <p>${example.description}</p>
+                exampleDiv.innerHTML = \`
+                    <h4>\${example.title}</h4>
+                    <p>\${example.description}</p>
                     <div class="example-meta">
-                        <span class="category-badge">${example.category}</span>
-                        <span class="difficulty">${example.difficulty}</span>
+                        <span class="category-badge">\${example.category}</span>
+                        <span class="difficulty">\${example.difficulty}</span>
                     </div>
-                `;
+                \`;
                 
                 examplesList.appendChild(exampleDiv);
             });
@@ -1380,63 +1835,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Load an example into the editor
         function loadExample(example) {
+            // Remove active class from all examples
+            document.querySelectorAll('.example-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked example
+            event.target.closest('.example-item').classList.add('active');
+            
             codeData.html = example.html;
             codeData.css = example.css;
             codeData.js = example.js;
+            currentExample = example;
             
             updateEditor();
             updatePreview();
-            addConsoleMessage('info', `Ejemplo cargado: ${example.title}`);
+            addConsoleMessage('info', \`Ejemplo cargado: \${example.title}\`);
         }
 
         // Setup panel width controls
         function setupPanelControls() {
             const examplesSlider = document.getElementById('examples-width');
-            const editorSlider = document.getElementById('editor-width');
             const previewSlider = document.getElementById('preview-width');
 
             examplesSlider.addEventListener('input', function() {
-                updatePanelWidth('examples', this.value + 'px');
+                document.querySelector('.examples-panel').style.width = this.value + 'px';
                 document.getElementById('examples-display').textContent = this.value + 'px';
             });
 
-            editorSlider.addEventListener('input', function() {
-                updatePanelWidth('editor', this.value + 'fr');
-                document.getElementById('editor-display').textContent = this.value + 'fr';
-            });
-
             previewSlider.addEventListener('input', function() {
-                updatePanelWidth('preview', this.value + 'fr');
-                document.getElementById('preview-display').textContent = this.value + 'fr';
+                document.querySelector('.preview-section').style.width = this.value + 'px';
+                document.getElementById('preview-display').textContent = this.value + 'px';
             });
-        }
-
-        // Update panel widths
-        function updatePanelWidth(panel, value) {
-            const mainContent = document.querySelector('.main-content');
-            const currentStyle = mainContent.style.gridTemplateColumns || '300px 1.2fr 1fr';
-            const parts = currentStyle.split(' ');
-            
-            switch(panel) {
-                case 'examples':
-                    parts[0] = value;
-                    break;
-                case 'editor':
-                    parts[1] = value;
-                    break;
-                case 'preview':
-                    parts[2] = value;
-                    break;
-            }
-            
-            mainContent.style.gridTemplateColumns = parts.join(' ');
         }
 
         // Switch between code tabs
         function switchTab(tab) {
             // Save current code
             const editor = document.getElementById('code-editor');
-            codeData[currentTab] = editor.value;
+            if (currentTab) {
+                codeData[currentTab] = editor.value;
+            }
 
             // Update current tab
             currentTab = tab;
@@ -1445,7 +1884,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            
+            // Find and activate the correct tab button
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                if (btn.textContent.toLowerCase() === tab || 
+                    (btn.textContent === 'JavaScript' && tab === 'js')) {
+                    btn.classList.add('active');
+                }
+            });
 
             // Update editor content and placeholder
             updateEditor();
@@ -1454,7 +1900,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update editor content
         function updateEditor() {
             const editor = document.getElementById('code-editor');
-            editor.value = codeData[currentTab];
+            editor.value = codeData[currentTab] || '';
 
             const placeholders = {
                 html: '<!-- Escribe tu código HTML aquí -->',
@@ -1462,15 +1908,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 js: '// Escribe tu código JavaScript aquí'
             };
 
-            editor.placeholder = placeholders[currentTab];
+            editor.placeholder = placeholders[currentTab] || '';
         }
 
-        // Save code when typing
+        // Auto-save and preview update on input
         document.addEventListener('DOMContentLoaded', function() {
             const editor = document.getElementById('code-editor');
             editor.addEventListener('input', function() {
                 codeData[currentTab] = this.value;
-                // Auto-update preview after 1 second of no typing
                 clearTimeout(window.updateTimer);
                 window.updateTimer = setTimeout(updatePreview, 1000);
             });
@@ -1480,66 +1925,66 @@ document.addEventListener('DOMContentLoaded', function() {
         function updatePreview() {
             const iframe = document.getElementById('preview-frame');
             
-            const combinedCode = `
-                <!DOCTYPE html>
-                <html lang="es">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Vista Previa</title>
-                    <style>${codeData.css}</style>
-                </head>
-                <body>
-                    ${codeData.html}
-                    <script>
-                        // Override console methods to capture output
-                        (function() {
-                            const originalLog = console.log;
-                            const originalError = console.error;
-                            const originalWarn = console.warn;
-                            
-                            console.log = function(...args) {
-                                originalLog.apply(console, args);
-                                window.parent.postMessage({
-                                    type: 'console',
-                                    level: 'log',
-                                    args: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg))
-                                }, '*');
-                            };
-                            
-                            console.error = function(...args) {
-                                originalError.apply(console, args);
-                                window.parent.postMessage({
-                                    type: 'console',
-                                    level: 'error',
-                                    args: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg))
-                                }, '*');
-                            };
-                            
-                            console.warn = function(...args) {
-                                originalWarn.apply(console, args);
-                                window.parent.postMessage({
-                                    type: 'console',
-                                    level: 'warn',
-                                    args: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg))
-                                }, '*');
-                            };
-                            
-                            // Catch runtime errors
-                            window.addEventListener('error', function(e) {
-                                window.parent.postMessage({
-                                    type: 'console',
-                                    level: 'error',
-                                    args: [e.message + ' (línea ' + e.lineno + ')']
-                                }, '*');
-                            });
-                        })();
-                        
-                        ${codeData.js}
-                    </script>
-                </body>
-                </html>
-            `;
+            const combinedCode = \`
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa</title>
+    <style>\${codeData.css || ''}</style>
+</head>
+<body>
+    \${codeData.html || ''}
+    <script>
+        // Override console methods to capture output
+        (function() {
+            const originalLog = console.log;
+            const originalError = console.error;
+            const originalWarn = console.warn;
+            
+            console.log = function(...args) {
+                originalLog.apply(console, args);
+                window.parent.postMessage({
+                    type: 'console',
+                    level: 'log',
+                    args: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
+                }, '*');
+            };
+            
+            console.error = function(...args) {
+                originalError.apply(console, args);
+                window.parent.postMessage({
+                    type: 'console',
+                    level: 'error',
+                    args: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
+                }, '*');
+            };
+            
+            console.warn = function(...args) {
+                originalWarn.apply(console, args);
+                window.parent.postMessage({
+                    type: 'console',
+                    level: 'warn',
+                    args: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg))
+                }, '*');
+            };
+            
+            // Catch runtime errors
+            window.addEventListener('error', function(e) {
+                window.parent.postMessage({
+                    type: 'console',
+                    level: 'error',
+                    args: [e.message + ' (línea ' + e.lineno + ')']
+                }, '*');
+            });
+        })();
+        
+        \${codeData.js || ''}
+    </script>
+</body>
+</html>
+            \`;
 
             iframe.srcdoc = combinedCode;
             updateLastUpdateTime();
@@ -1559,7 +2004,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add message to console
         function addConsoleMessage(level, message) {
             const timestamp = new Date().toLocaleTimeString();
-            const formattedMessage = `[${timestamp}] ${level}: ${message}`;
+            const prefix = {
+                'log': '📝',
+                'error': '❌',
+                'warn': '⚠️',
+                'info': 'ℹ️'
+            }[level] || '📝';
+            
+            const formattedMessage = \`[\${timestamp}] \${prefix} \${message}\`;
             
             consoleMessages.push(formattedMessage);
             if (consoleMessages.length > 50) {
@@ -1577,8 +2029,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 consoleOutput.innerHTML = '<div class="console-empty">Consola vacía - ejecuta código JavaScript para ver la salida</div>';
             } else {
                 consoleOutput.innerHTML = consoleMessages
-                    .slice(-20) // Show only last 20 messages
-                    .map(msg => `<div>${msg}</div>`)
+                    .slice(-15)
+                    .map(msg => \`<div>\${msg}</div>\`)
                     .join('');
                 consoleOutput.scrollTop = consoleOutput.scrollHeight;
             }
@@ -1592,7 +2044,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Action functions
         function runCode() {
             updatePreview();
-            addConsoleMessage('info', 'Vista previa actualizada');
+            addConsoleMessage('info', 'Vista previa actualizada manualmente');
         }
 
         function clearCode() {
@@ -1600,120 +2052,148 @@ document.addEventListener('DOMContentLoaded', function() {
                 codeData.html = '';
                 codeData.css = '';
                 codeData.js = '';
+                currentExample = null;
+                
+                // Remove active class from examples
+                document.querySelectorAll('.example-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
                 updateEditor();
                 updatePreview();
                 consoleMessages = [];
                 updateConsoleDisplay();
-                addConsoleMessage('info', 'Código limpiado');
+                addConsoleMessage('info', 'Código limpiado completamente');
             }
         }
 
         function downloadProject() {
             try {
-                const completeHtml = `<!DOCTYPE html>
+                const projectName = currentExample ? 
+                    currentExample.title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() : 
+                    'mi-proyecto-web';
+                    
+                const completeHtml = \`<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Proyecto Web</title>
+    <title>\${currentExample ? currentExample.title : 'Mi Proyecto Web'}</title>
     <style>
-${codeData.css}
+\${codeData.css || ''}
     </style>
 </head>
 <body>
-${codeData.html}
+\${codeData.html || ''}
     <script>
-${codeData.js}
+\${codeData.js || ''}
     </script>
 </body>
-</html>`;
+</html>\`;
 
                 const blob = new Blob([completeHtml], { type: 'text/html;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = `mi-proyecto-web-${new Date().toISOString().split('T')[0]}.html`;
+                link.download = \`\${projectName}-\${new Date().toISOString().split('T')[0]}.html\`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
 
-                addConsoleMessage('info', 'Proyecto descargado correctamente');
+                addConsoleMessage('info', 'Proyecto descargado: ' + link.download);
             } catch (error) {
-                addConsoleMessage('error', 'Error al descargar el proyecto');
+                addConsoleMessage('error', 'Error al descargar: ' + error.message);
             }
         }
 
         function refreshPreview() {
             updatePreview();
-            addConsoleMessage('info', 'Vista previa actualizada manualmente');
+            addConsoleMessage('info', 'Vista previa actualizada');
         }
 
         function openInNewTab() {
-            const combinedCode = `
-                <!DOCTYPE html>
-                <html lang="es">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Vista Previa</title>
-                    <style>${codeData.css}</style>
-                </head>
-                <body>
-                    ${codeData.html}
-                    <script>${codeData.js}</script>
-                </body>
-                </html>
-            `;
+            const combinedCode = \`
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa</title>
+    <style>\${codeData.css || ''}</style>
+</head>
+<body>
+    \${codeData.html || ''}
+    <script>\${codeData.js || ''}</script>
+</body>
+</html>
+            \`;
 
             const blob = new Blob([combinedCode], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
-            window.open(url, '_blank');
-            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            const newWindow = window.open(url, '_blank');
+            
+            if (newWindow) {
+                addConsoleMessage('info', 'Proyecto abierto en nueva pestaña');
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            } else {
+                addConsoleMessage('warn', 'No se pudo abrir nueva pestaña - revisa el bloqueador de pop-ups');
+            }
         }
 
         function formatCode() {
-            // Simple code formatting
-            let code = codeData[currentTab];
+            let code = codeData[currentTab] || '';
             
             if (currentTab === 'html') {
-                // Basic HTML formatting
-                code = code.replace(/></g, '>\n<').replace(/^\s+/gm, '');
+                code = code
+                    .replace(/></g, '>\\n<')
+                    .replace(/^\\s+/gm, '')
+                    .split('\\n')
+                    .map(line => {
+                        const depth = (line.match(/^\\s*</g) || []).length;
+                        return '  '.repeat(Math.max(0, depth - 1)) + line.trim();
+                    })
+                    .join('\\n');
             } else if (currentTab === 'css') {
-                // Basic CSS formatting
-                code = code.replace(/\{/g, ' {\n    ').replace(/\}/g, '\n}\n').replace(/;/g, ';\n    ');
+                code = code
+                    .replace(/\\{/g, ' {\\n  ')
+                    .replace(/\\}/g, '\\n}\\n')
+                    .replace(/;/g, ';\\n  ')
+                    .replace(/^\\s+/gm, '');
             }
             
             codeData[currentTab] = code;
             updateEditor();
-            addConsoleMessage('info', `Código ${currentTab.toUpperCase()} formateado`);
+            addConsoleMessage('info', \`Código \${currentTab.toUpperCase()} formateado\`);
         }
 
         function validateCode() {
-            const code = codeData[currentTab];
+            const code = codeData[currentTab] || '';
             let isValid = true;
-            let message = `Código ${currentTab.toUpperCase()} válido ✅`;
+            let message = \`Código \${currentTab.toUpperCase()} válido ✅\`;
 
             if (currentTab === 'html') {
-                const openTags = (code.match(/<[^\/][^>]*>/g) || []).length;
-                const closeTags = (code.match(/<\/[^>]*>/g) || []).length;
-                if (openTags !== closeTags) {
+                const openTags = (code.match(/<[^\\/][^>]*>/g) || []).length;
+                const closeTags = (code.match(/<\\/[^>]*>/g) || []).length;
+                const selfClosing = (code.match(/<[^>]*\\/>/g) || []).length;
+                
+                if (openTags !== (closeTags + selfClosing)) {
                     isValid = false;
-                    message = 'Etiquetas HTML no balanceadas ❌';
+                    message = \`Etiquetas HTML desbalanceadas - Abiertas: \${openTags}, Cerradas: \${closeTags} ❌\`;
                 }
             } else if (currentTab === 'css') {
-                const openBraces = (code.match(/{/g) || []).length;
-                const closeBraces = (code.match(/}/g) || []).length;
+                const openBraces = (code.match(/\\{/g) || []).length;
+                const closeBraces = (code.match(/\\}/g) || []).length;
                 if (openBraces !== closeBraces) {
                     isValid = false;
-                    message = 'Llaves CSS no balanceadas ❌';
+                    message = \`Llaves CSS desbalanceadas - Abiertas: \${openBraces}, Cerradas: \${closeBraces} ❌\`;
                 }
             } else if (currentTab === 'js') {
                 try {
                     new Function(code);
                 } catch (e) {
                     isValid = false;
-                    message = 'Error de sintaxis JavaScript ❌';
+                    message = \`Error de sintaxis JavaScript: \${e.message} ❌\`;
                 }
             }
 
